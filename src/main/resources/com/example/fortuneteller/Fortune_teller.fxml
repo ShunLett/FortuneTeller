@@ -1,16 +1,65 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.VBox?>
-
 <?import javafx.scene.control.Button?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.example.fortuneteller.HelloController">
-    <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
-    </padding>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-    <Label fx:id="welcomeText"/>
-    <Button text="Hello!" onAction="#onHelloButtonClick"/>
-</VBox>
+<AnchorPane prefHeight="400" prefWidth="600" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.fortuneteller.FortuneTellerController">
+
+    <HBox spacing="20" AnchorPane.bottomAnchor="10" AnchorPane.leftAnchor="10" AnchorPane.rightAnchor="10" AnchorPane.topAnchor="10">
+
+        <!-- Left Side: Fortune Generator -->
+        <VBox alignment="TOP_CENTER" prefWidth="300" spacing="15">
+
+            <Label prefHeight="71.0" prefWidth="290.0" style="-fx-font-size: 20px; -fx-font-weight: bold;" text="🔮 Welcome to the Fortune Teller! " textAlignment="CENTER" textFill="#9a1b9d" textOverrun="LEADING_ELLIPSIS" wrapText="true">
+            <font>
+               <Font name="Arial Bold Italic" size="12.0" />
+            </font></Label>
+
+            <Label fx:id="fortuneLabel" maxWidth="250" style="-fx-font-size: 14px; -fx-padding: 10;" textAlignment="CENTER" textFill="#9a1b9d" wrapText="true">
+            <font>
+               <Font size="14.0" />
+            </font></Label>
+
+            <Button maxWidth="200" onAction="#onGetFortuneClickButton" style="-fx-background-color: #9a1b9d;" text="Get a Fortune" textFill="WHITE" />
+
+            <Separator />
+
+            <Label contentDisplay="CENTER" prefHeight="35.0" prefWidth="143.0" text="Add a new fortune:" textAlignment="CENTER" textFill="#9a1b9d" wrapText="true">
+            <font>
+               <Font size="14.0" />
+            </font></Label>
+
+            <HBox alignment="CENTER" prefHeight="53.0" prefWidth="221.0" spacing="10">
+            <children>
+                   <TextField fx:id="newFortuneInput" prefWidth="180" promptText="Enter your fortune here..." />
+                   <Button onAction="#onAddFortuneClickButton" style="-fx-background-color: #9a1b9d;" text="Add" textFill="WHITE" />
+            </children>
+            </HBox>
+        </VBox>
+
+        <!-- Right Side: Fortunes List -->
+        <VBox alignment="TOP_CENTER" prefWidth="280" spacing="10">
+
+            <Label prefHeight="21.0" prefWidth="88.0" style="-fx-font-size: 14px;" text="Fortunes List" textAlignment="CENTER" textFill="#9a1b9d" wrapText="true">
+            <font>
+               <Font name="System Bold" size="18.0" />
+            </font></Label>
+
+            <ListView fx:id="fortuneListView" prefHeight="291.0" prefWidth="270.0">
+            <effect>
+               <Glow />
+            </effect></ListView>
+
+            <Button maxWidth="200" onAction="#onRemoveFortuneClickButton" style="-fx-background-color: #9a1b9d;" text="Remove Fortune" textFill="WHITE" />
+
+        </VBox>
+    </HBox>
+</AnchorPane>

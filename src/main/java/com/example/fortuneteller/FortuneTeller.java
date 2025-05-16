@@ -1,3 +1,8 @@
+/**
+ * @author Shun Lett Pyae Oo
+ * Date: 15th May 2025
+ * Description: logic for the Fortune Teller App such as storing, adding, removing, and retrieving fortunes.
+ */
 package com.example.fortuneteller;
 
 import java.util.ArrayList;
@@ -5,21 +10,15 @@ import java.util.List;
 import java.util.Random;
 import java.util.Collection;
 
-/**
- * FortuneTellerLogic.java
- *
- * Date: May 2025
- * Description: Handles the business logic for the Fortune Teller App,
- * including storing, adding, removing, and retrieving fortunes.
- */
-public class FortuneTellerLogic {
+
+public class FortuneTeller {
     private List<String> fortunes;
     private Random random;
 
     /**
-     * Constructs the logic class and initializes with 10 default fortunes.
+     * Constructs the logic class and initializes with default fortunes.
      */
-    public FortuneTellerLogic() {
+    public FortuneTeller() {
         fortunes = new ArrayList<>();
         random = new Random();
 
@@ -34,15 +33,14 @@ public class FortuneTellerLogic {
         fortunes.add("Success is closer than you think.");
         fortunes.add("You’ll make someone’s day.");
         fortunes.add("A financial reward is on its way.");
-        fortunes.add("A financial reward is on its way.");
+        fortunes.add("Take the chance.");
     }
 
     /**
-     * Returns a random fortune from the list.
-     * @return a random fortune string
+     *@return a random fortune string
      */
     public String getRandomFortune() {
-        if (fortunes.isEmpty()) return "No fortunes available.";
+        if (fortunes.isEmpty()) return "No fortunes available at the moment.";
         return fortunes.get(random.nextInt(fortunes.size()));
     }
 
